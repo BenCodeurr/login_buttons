@@ -20,7 +20,7 @@ class LoginButtons {
   static Widget apple({
     required VoidCallback onPressed,
     String text = 'Continue with Apple',
-    LoginButtonStyle style = LoginButtonStyle.black,
+    LoginButtonStyle style = LoginButtonStyle.white,
     bool isLoading = false,
   }) {
     String imagePath = style == LoginButtonStyle.black

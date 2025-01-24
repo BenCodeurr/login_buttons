@@ -1,3 +1,6 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+* Initial release
+* Added Google, Apple, and LinkedIn login buttons
+* Support for light/dark button styles
+* Loading state support

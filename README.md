@@ -1,39 +1,79 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# login_buttons
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+A Flutter package providing customizable social login buttons for Google, Apple, and LinkedIn (and may more to come).
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+### Features.
+- Pre-styled buttons for Google, Apple, and LinkedIn
+- Customizable text and styles
+- Loading state support
+- Easy to implement
 
-## Features
+<img src="assets/images/black_btns.png">
+<image src="assets/images/white_btns.png">
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
 
-## Getting started
+## Important
+This package doesn't include logo assets. You must provide your own logo images and declare them in your **pubspec.yaml**:
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```yaml
+flutter:
+  assets:
+    - assets/images/google.png
+    - assets/images/apple_white.png
+    - assets/images/apple_black.png
+    - assets/images/linkedin.png
+```
+I recommend you to get the icons from [Flaticon][https://www.flaticon.com/]
 
-## Usage
+## Installation
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+```yaml
+dependencies:
+  login_buttons: ^1.0.0
+```
+Don't forget to add your logo assets:
 
 ```dart
-const like = 'sample';
+// Google Login Button
+LoginButtons.google(
+style: LoginButtonStyle.black,
+onPressed: () {
+    setState(() => isLoading = true);
+    Future.delayed(const Duration(seconds: 2), () {
+        setState(() => isLoading = false);
+    });
+},
+isLoading: isLoading,
+),
+
+// Apple Login Button
+LoginButtons.apple(
+style: LoginButtonStyle.black,
+onPressed: () => handleAppleLogin()),
+
+// LinkedIn Login Button
+LoginButtons.linkedin(
+style: LoginButtonStyle.black,
+    onPressed: () => handleLinkedInLogin()),
 ```
 
-## Additional information
+## Customization
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+Each button accepts these parameters:
+
+* **onPressed**: Callback function when button is pressed
+* **text**: Custom button text
+* **style**: LoginButtonStyle.white or LoginButtonStyle.black
+* **isLoading**: Show loading indicator instead of icon
+
+### License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Say Hello
+- [LinkedIn][https://www.linkedin.com/in/benmukanirwa/]
+- [X][https://x.com/benmukanirwa]
+- [IG][https://www.instagram.com/__ben.mk/]
+
+
+

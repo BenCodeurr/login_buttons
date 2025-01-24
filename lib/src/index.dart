@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_buttons/dependencies/loading_indicator.dart';
+import 'package:login_button_suite/dependencies/loading_indicator.dart';
 
 class LoginButtons {
   static Widget google({

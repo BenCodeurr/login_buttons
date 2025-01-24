@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
-import 'package:login_buttons/login_buttons.dart';
-import 'package:login_buttons/dependencies/loading_indicator.dart';
+import 'package:login_button_suite/login_button_suite.dart';
+import 'package:login_button_suite/dependencies/loading_indicator.dart';
 
 void main() {
   testWidgets('LoginButtons.google renders correctly', (WidgetTester tester) async {

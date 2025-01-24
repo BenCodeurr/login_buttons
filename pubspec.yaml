@@ -1,4 +1,4 @@
-name: login_buttons
+name: login_button_suite
 description: "A Flutter package for social login buttons (Google, Apple, LinkedIn)"
 version: 0.0.1
 homepage: https://github.com/BenCodeurr/login_buttons

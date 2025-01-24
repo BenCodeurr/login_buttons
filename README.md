@@ -1,4 +1,4 @@
-# login_buttons
+# login_button_suite
 
 A Flutter package providing customizable social login buttons for Google, Apple, and LinkedIn (and may more to come).
 

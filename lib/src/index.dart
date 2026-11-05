@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:login_button_suite/dependencies/loading_indicator.dart';
+import 'package:login_button_suite/src/enums/login_button_style.dart';
+import 'package:login_button_suite/src/enums/login_provider.dart';
+import 'package:login_button_suite/src/helpers/computers.dart';
+import 'package:login_button_suite/src/helpers/locals.dart';
 
 class LoginButtons {
   static Widget google({
     required VoidCallback onPressed,
-    String text = 'Continue with Google',
+    String text = Locals.continueWithGoogle,
     LoginButtonStyle style = LoginButtonStyle.white,
     bool isLoading = false,
+    String? imagePath,
   }) {
     return LoginButton(
-      imagePath: 'assets/images/google.png',
+      imagePath:
+          Computers.computeImagePath(style, imagePath, LoginProvider.google),
       text: text,
       onPressed: onPressed,
       style: style,
@@ -19,15 +25,14 @@ class LoginButtons {
 
   static Widget apple({
     required VoidCallback onPressed,
-    String text = 'Continue with Apple',
+    String text = Locals.continueWithApple,
     LoginButtonStyle style = LoginButtonStyle.white,
     bool isLoading = false,
+    String? imagePath,
   }) {
-    String imagePath = style == LoginButtonStyle.black
-        ? 'assets/images/apple_white.png'
-        : 'assets/images/apple_black.png';
     return LoginButton(
-      imagePath: imagePath,
+      imagePath:
+          Computers.computeImagePath(style, imagePath, LoginProvider.apple),
       text: text,
       onPressed: onPressed,
       style: style,
@@ -37,12 +42,14 @@ class LoginButtons {
 
   static Widget linkedin({
     required VoidCallback onPressed,
-    String text = 'Continue with LinkedIn',
+    String text = Locals.continueWithLinkedIn,
     LoginButtonStyle style = LoginButtonStyle.white,
     bool isLoading = false,
+    String? imagePath,
   }) {
     return LoginButton(
-      imagePath: 'assets/images/linkedin.png',
+      imagePath:
+          Computers.computeImagePath(style, imagePath, LoginProvider.linkedin),
       text: text,
       onPressed: onPressed,
       style: style,
@@ -90,15 +97,15 @@ class LoginButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: isLoading ? null : onPressed,
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(_backgroundColor),
-        foregroundColor: MaterialStateProperty.all<Color>(_foregroundColor),
-        elevation: MaterialStateProperty.all(0),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        backgroundColor: WidgetStateProperty.all<Color>(_backgroundColor),
+        foregroundColor: WidgetStateProperty.all<Color>(_foregroundColor),
+        elevation: WidgetStateProperty.all(0),
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),
         ),
-        overlayColor: MaterialStateProperty.all(Colors.grey.shade100),
+        overlayColor: WidgetStateProperty.all(Colors.grey.shade100),
       ),
       child: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -127,13 +134,3 @@ class LoginButton extends StatelessWidget {
     );
   }
 }
-
-enum LoginButtonStyle {
-  white,
-  black,
-}
-
-// enum IconPosition {
-//   left,
-//   right,
-// }

@@ -1,0 +1,4 @@
+enum LoginButtonStyle {
+  white,
+  black,
+}
